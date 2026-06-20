@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GST Calculator | Calculate GST Instantly</title>
+  <meta
+    name="description"
+    content="Free online GST Calculator to instantly calculate GST amount and final amount including GST for 5%, 12%, 18%, and 28% slabs."
+  />
+
+  <!-- Google Fonts (free): Sora for headings/numbers, Inter for body text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Our custom stylesheet -->
+  <link rel="stylesheet" href="./Style.css" />
+</head>
+<body>
+
+  <div class="page">
+
+    <!-- ===================== HEADER ===================== -->
+    <header class="app-header">
+      <div class="header-inner">
+        <h1 class="app-title">GST Calculator</h1>
+        <p class="app-subtitle">
+          Calculate GST amount and final price instantly — accurate, fast, and free.
+        </p>
+      </div>
+    </header>
+
+    <main class="main-content">
+
+      <!-- ===================== CALCULATOR CARD ===================== -->
+      <section class="calculator-card" aria-label="GST Calculator">
+
+        <form id="gstForm" class="gst-form" novalidate>
+
+          <!-- Amount input field -->
+          <div class="form-group">
+            <label for="amount">Enter Amount</label>
+            <div class="input-wrapper">
+              <span class="currency-symbol">₹</span>
+              <input
+                type="number"
+                id="amount"
+                name="amount"
+                placeholder="e.g. 1000"
+                min="0"
+                step="0.01"
+                inputmode="decimal"
+              />
+            </div>
+            <!-- Error message is injected here by script.js when validation fails -->
+            <span class="error-message" id="amountError"></span>
+          </div>
+
+          <!-- GST percentage dropdown -->
+          <div class="form-group">
+            <label for="gstRate">GST Percentage</label>
+            <select id="gstRate" name="gstRate">
+              <option value="5">5%</option>
+              <option value="12">12%</option>
+              <option value="18" selected>18%</option>
+              <option value="28">28%</option>
+            </select>
+          </div>
+
+          <!-- Calculate + Reset buttons -->
+          <div class="button-group">
+            <button type="submit" class="btn btn-primary" id="calculateBtn">Calculate</button>
+            <button type="button" class="btn btn-secondary" id="resetBtn">Reset</button>
+          </div>
+
+        </form>
+
+        <!-- ===================== RESULT PANEL ===================== -->
+        <!-- Hidden by default. script.js adds the "show" class after a valid calculation -->
+        <div class="result-panel" id="resultPanel">
+
+          <div class="result-row">
+            <span class="result-label">Original Amount</span>
+            <span class="result-value" id="originalAmountResult">₹ 0.00</span>
+          </div>
+
+          <div class="result-row">
+            <span class="result-label">GST Amount</span>
+            <span class="result-value" id="gstAmountResult">₹ 0.00</span>
+          </div>
+
+          <!-- Visual breakdown bar: teal portion = original amount, gold portion = GST -->
+          <div class="breakdown-bar" aria-hidden="true">
+            <div class="breakdown-base" id="breakdownBase"></div>
+            <div class="breakdown-gst" id="breakdownGst"></div>
+          </div>
+
+          <div class="result-row result-final">
+            <span class="result-label">Final Amount (incl. GST)</span>
+            <span class="result-value" id="finalAmountResult">₹ 0.00</span>
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="app-footer">
+      <div class="footer-card">
+        <p class="footer-name">Name: Bhagyashri Bhere</p>
+        <p class="footer-email">Email: bhagyashribhere416@gmail.com</p>
+        <a
+          href="https://digitalheroesco.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-digital-heroes"
+        >
+          Built for Digital Heroes
+        </a>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Our custom JavaScript logic -->
+  <script src="./Script.js" defer></script>
+</body>
+</html>
